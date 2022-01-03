@@ -37,8 +37,8 @@ struct node* find_minimum(struct node* root){
 struct node* delete(struct node *root,int data){
 
     if(root == NULL) return NULL;
-    else if(data < root->data) delete(root->left,data);
-    else if(data > root->data) delete(root->right,data);
+    else if(data < root->data) root = delete(root->left,data);
+    else if(data > root->data) root = delete(root->right,data);
     else{
         if(root->left == NULL && root->right == NULL){
             free(root);
